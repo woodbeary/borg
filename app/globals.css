@@ -3,19 +3,128 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --neon-pink: #ff2d55;
+  --neon-blue: #00fff5;
+  --neon-purple: #b026ff;
+  --dark-bg: #0a0a0f;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--dark-bg);
+  color: #ffffff;
+  background-image: 
+    linear-gradient(45deg, #1a1a2e 25%, transparent 25%),
+    linear-gradient(-45deg, #1a1a2e 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #1a1a2e 75%),
+    linear-gradient(-45deg, transparent 75%, #1a1a2e 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+.neon-text {
+  text-shadow: 0 0 10px var(--neon-blue),
+               0 0 20px var(--neon-blue),
+               0 0 30px var(--neon-blue);
+}
+
+.cyber-border {
+  position: relative;
+  border: 2px solid var(--neon-blue);
+  box-shadow: 0 0 10px var(--neon-blue),
+              inset 0 0 20px rgba(0, 255, 245, 0.2);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.cyber-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--neon-pink), var(--neon-blue));
+  z-index: -1;
+  filter: blur(10px);
+}
+
+.glitch-text {
+  animation: glitch 1s linear infinite;
+}
+
+@keyframes glitch {
+  2%, 64% {
+    transform: translate(2px,0) skew(0deg);
+  }
+  4%, 60% {
+    transform: translate(-2px,0) skew(0deg);
+  }
+  62% {
+    transform: translate(0,0) skew(5deg); 
+  }
+}
+
+@media (max-width: 640px) {
+  .neon-text {
+    text-shadow: 0 0 5px var(--neon-blue),
+                 0 0 10px var(--neon-blue);
+  }
+
+  .cyber-border::before {
+    filter: blur(5px);
+  }
+}
+
+@media (max-width: 640px) {
+  button, 
+  a, 
+  input[type="submit"] {
+    min-height: 44px;
+    padding: 0.75rem;
+  }
+}
+
+input, 
+textarea, 
+select {
+  font-size: 16px !important; /* Prevents iOS zoom on focus */
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: hover) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.swiper-pagination-bullet {
+  background: var(--neon-blue) !important;
+  opacity: 0.5 !important;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(--neon-blue) !important;
+  text-shadow: 0 0 10px var(--neon-blue);
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  color: var(--neon-pink) !important;
+  text-shadow: 0 0 10px var(--neon-pink);
+}
+
+.text-gray-300 {
+  @apply text-white/90 text-lg;
+}
+
+.text-gray-500 {
+  @apply text-white/70 text-base;
+}
+
+.cyber-text {
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
