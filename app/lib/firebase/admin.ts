@@ -3,13 +3,13 @@ import { getFirestore } from 'firebase-admin/firestore';
 
 const apps = getApps();
 
-const serviceAccount = process.env.FIREBASE_SERVICE_ACCOUNT_KEY 
-  ? JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY)
-  : {};
-
 const adminApp = apps.length === 0 
   ? initializeApp({
-      credential: cert(serviceAccount),
+      credential: cert({
+        projectId: 'dummy',
+        clientEmail: 'dummy@example.com',
+        privateKey: 'dummy'
+      }),
     })
   : apps[0];
 
