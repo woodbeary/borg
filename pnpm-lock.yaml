@@ -9,43 +9,40 @@ importers:
   .:
     dependencies:
       '@firebase/app':
-        specifier: ^0.9.27
+        specifier: 0.9.29
         version: 0.9.29
       '@firebase/auth':
-        specifier: ^1.6.0
+        specifier: 1.8.1
         version: 1.8.1(@firebase/app@0.9.29)
       '@firebase/firestore':
-        specifier: ^4.4.2
+        specifier: 4.7.5
         version: 4.7.5(@firebase/app@0.9.29)
       '@firebase/storage':
-        specifier: ^0.12.0
+        specifier: 0.12.6
         version: 0.12.6(@firebase/app@0.9.29)
       '@google/generative-ai':
-        specifier: ^0.21.0
+        specifier: 0.21.0
         version: 0.21.0
-      '@types/react-google-recaptcha':
-        specifier: ^2.1.9
-        version: 2.1.9
       class-variance-authority:
-        specifier: ^0.7.0
+        specifier: 0.7.0
         version: 0.7.0
       clsx:
-        specifier: ^2.1.1
+        specifier: 2.1.1
         version: 2.1.1
       firebase:
-        specifier: ^10.8.0
+        specifier: 10.14.1
         version: 10.14.1
       firebase-admin:
-        specifier: ^13.0.0
+        specifier: 13.0.0
         version: 13.0.0
       lucide-react:
-        specifier: ^0.456.0
+        specifier: 0.456.0
         version: 0.456.0(react@19.0.0-rc-66855b96-20241106)
       next:
         specifier: 15.0.3
         version: 15.0.3(@opentelemetry/api@1.9.0)(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)
       next-auth:
-        specifier: ^4.24.10
+        specifier: 4.24.10
         version: 4.24.10(next@15.0.3(@opentelemetry/api@1.9.0)(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106))(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)
       react:
         specifier: 19.0.0-rc-66855b96-20241106
@@ -54,22 +51,22 @@ importers:
         specifier: 19.0.0-rc-66855b96-20241106
         version: 19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106)
       react-google-recaptcha:
-        specifier: ^3.1.0
+        specifier: 3.1.0
         version: 3.1.0(react@19.0.0-rc-66855b96-20241106)
       react-responsive:
-        specifier: ^10.0.0
+        specifier: 10.0.0
         version: 10.0.0(react@19.0.0-rc-66855b96-20241106)
       swiper:
-        specifier: ^11.1.14
+        specifier: 11.1.14
         version: 11.1.14
       tailwind-merge:
-        specifier: ^2.5.4
+        specifier: 2.5.4
         version: 2.5.4
       tailwindcss-animate:
-        specifier: ^1.0.7
+        specifier: 1.0.7
         version: 1.0.7(tailwindcss@3.4.15)
       three:
-        specifier: ^0.162.0
+        specifier: 0.162.0
         version: 0.162.0
     devDependencies:
       '@types/node':
@@ -81,14 +78,17 @@ importers:
       '@types/react-dom':
         specifier: ^18
         version: 18.3.1
+      '@types/react-google-recaptcha':
+        specifier: 2.1.9
+        version: 2.1.9
       '@types/three':
-        specifier: ^0.162.0
+        specifier: 0.162.0
         version: 0.162.0
       postcss:
         specifier: ^8
         version: 8.4.49
       tailwindcss:
-        specifier: ^3.4.1
+        specifier: 3.4.15
         version: 3.4.15
       typescript:
         specifier: ^5
