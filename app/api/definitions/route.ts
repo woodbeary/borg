@@ -1,18 +1,22 @@
 import { NextResponse } from "next/server";
 import { adminDb } from "@/app/lib/firebase/admin";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]/route";
 import { moderateContent } from "@/app/lib/gemini";
 
 export async function POST(request: Request) {
   try {
-    const session = await getServerSession(authOptions);
-    
-    if (!session?.user) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
+    const { term, definition, recaptchaToken } = await request.json();
 
-    const { term, definition } = await request.json();
+    // Verify reCAPTCHA token here
+    const recaptchaResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`
+    });
+
+    const recaptchaResult = await recaptchaResponse.json();
+    if (!recaptchaResult.success) {
+      return NextResponse.json({ error: "Invalid CAPTCHA" }, { status: 400 });
+    }
 
     // Moderate content using Gemini
     const moderation = await moderateContent(term, definition);
@@ -21,8 +25,7 @@ export async function POST(request: Request) {
       term,
       definition,
       createdAt: new Date(),
-      authorId: session.user.id,
-      authorName: session.user.name,
+      authorName: "Anonymous BORGer",
       status: moderation.approved ? 'approved' : 'pending',
       moderationReason: moderation.reason
     });

@@ -16,19 +16,19 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "How to BORG | Your Ultimate BORG Guide",
-  description: "Learn the sacred art of creating the perfect Black Out Rage Gallon (BORG). Step-by-step guide, safety tips, and community-driven BORG dictionary.",
+  description: "POV: You're still drinking straight vodka like a freshman. Learn the sacred art of the BORG and ascend to peak hydration. 💀",
   keywords: ["BORG", "Black Out Rage Gallon", "drink recipe", "party drinks", "hydration", "safety tips"],
   authors: [{ name: "BORG Master" }],
   
   // OpenGraph metadata for social sharing
   openGraph: {
     title: "How to BORG | The Sacred Guide",
-    description: "Master the art of the Black Out Rage Gallon with our cyberpunk guide. Safe ratios, pro tips, and community wisdom.",
+    description: "POV: You're still drinking straight vodka like a freshman. Learn the sacred art of the BORG and ascend to peak hydration. 💀",
     type: "website",
     url: "https://howtoborg.org",
     images: [
       {
-        url: "/og-image.jpg", // You'll need to create this image
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "How to BORG - Cyberpunk Guide",
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "How to BORG | Cyberpunk BORG Guide",
-    description: "The ultimate cyberpunk guide to creating the perfect BORG. Safety first, party second.",
-    images: ["/twitter-image.jpg"], // You'll need to create this image
+    description: "POV: You're still drinking straight vodka like a freshman. Learn the sacred art of the BORG and ascend to peak hydration. 💀",
+    images: ["/twitter-image.jpg"],
   },
   
   // Apple specific
