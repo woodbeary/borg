@@ -65,6 +65,9 @@ export const metadata: Metadata = {
   
   // Manifest for PWA
   manifest: "/manifest.json",
+  
+  // Theme color
+  themeColor: "#0a0a0f",
 };
 
 export const viewport = {
@@ -73,8 +76,6 @@ export const viewport = {
   maximumScale: 1,
   userScalable: false,
 };
-
-export const themeColor = "#0a0a0f";
 
 export default function RootLayout({
   children,
