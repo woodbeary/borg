@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { doc, updateDoc } from "firebase/firestore";
-import { increment } from 'firebase/firestore/lite';
 import { db } from "@/app/lib/firebase/client";
 import type { VoteRecord } from "@/app/types/definitions";
 
@@ -24,15 +23,6 @@ export function useVoting(updateDefinitionVote?: (id: string, increment: number)
     localStorage.setItem(VOTE_STORAGE_KEY, JSON.stringify(voteRecords));
   }, [voteRecords]);
 
-  const hasVoted = (definitionId: string) => {
-    return voteRecords.some(record => record.definitionId === definitionId);
-  };
-
-  const getVoteType = (definitionId: string) => {
-    const record = voteRecords.find(record => record.definitionId === definitionId);
-    return record?.vote;
-  };
-
   const vote = async (definitionId: string, voteType: 'up' | 'down') => {
     try {
       if (hasVoted(definitionId)) {
@@ -40,13 +30,15 @@ export function useVoting(updateDefinitionVote?: (id: string, increment: number)
       }
 
       const docRef = doc(db, "definitions", definitionId);
+      const incrementValue = voteType === 'up' ? 1 : -1;
+      
       await updateDoc(docRef, {
-        votes: voteType === 'up' ? 1 : -1
+        votes: incrementValue
       });
 
       // Update local state immediately
       if (updateDefinitionVote) {
-        updateDefinitionVote(definitionId, voteType === 'up' ? 1 : -1);
+        updateDefinitionVote(definitionId, incrementValue);
       }
 
       // Record the vote locally
@@ -62,6 +54,12 @@ export function useVoting(updateDefinitionVote?: (id: string, increment: number)
       return false;
     }
   };
+
+  const hasVoted = (definitionId: string) => 
+    voteRecords.some(record => record.definitionId === definitionId);
+
+  const getVoteType = (definitionId: string) => 
+    voteRecords.find(record => record.definitionId === definitionId)?.vote;
 
   return {
     vote,
