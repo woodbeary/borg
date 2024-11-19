@@ -23,6 +23,9 @@ importers:
       '@google/generative-ai':
         specifier: 0.21.0
         version: 0.21.0
+      '@vercel/analytics':
+        specifier: ^1.4.0
+        version: 1.4.0(next@15.0.3(@opentelemetry/api@1.9.0)(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)
       class-variance-authority:
         specifier: 0.7.0
         version: 0.7.0
@@ -736,6 +739,32 @@ packages:
 
   '@types/webxr@0.5.20':
     resolution: {integrity: sha512-JGpU6qiIJQKUuVSKx1GtQnHJGxRjtfGIhzO2ilq43VZZS//f1h1Sgexbdk+Lq+7569a6EYhOWrUpIruR/1Enmg==}
+
+  '@vercel/analytics@1.4.0':
+    resolution: {integrity: sha512-eUwWW7l8nPJb0nJmjZuYp9o7YZ9XPj67lU9mEogaPXiFxq/SFB5DMnvQVk4aKcL8kFgotiYdDZWxdiNcWo7cgg==}
+    peerDependencies:
+      '@remix-run/react': ^2
+      '@sveltejs/kit': ^1 || ^2
+      next: '>= 13'
+      react: ^18 || ^19 || ^19.0.0-rc
+      svelte: '>= 4'
+      vue: ^3
+      vue-router: ^4
+    peerDependenciesMeta:
+      '@remix-run/react':
+        optional: true
+      '@sveltejs/kit':
+        optional: true
+      next:
+        optional: true
+      react:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
+      vue-router:
+        optional: true
 
   abort-controller@3.0.0:
     resolution: {integrity: sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==}
@@ -2448,6 +2477,11 @@ snapshots:
     optional: true
 
   '@types/webxr@0.5.20': {}
+
+  '@vercel/analytics@1.4.0(next@15.0.3(@opentelemetry/api@1.9.0)(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)':
+    optionalDependencies:
+      next: 15.0.3(@opentelemetry/api@1.9.0)(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)
+      react: 19.0.0-rc-66855b96-20241106
 
   abort-controller@3.0.0:
     dependencies:
