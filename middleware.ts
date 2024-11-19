@@ -1,26 +1,23 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { cookies } from 'next/headers';
 
-const ADMIN_EMAILS = ["your.email@example.com"]; // Add admin emails here
-
-export async function middleware(request: NextRequest) {
-  if (request.nextUrl.pathname.startsWith("/admin")) {
-    const sessionToken = request.cookies.get('next-auth.session-token');
+export function middleware(request: NextRequest) {
+  // Only run on admin routes
+  if (request.nextUrl.pathname.startsWith('/admin')) {
+    const adminToken = request.cookies.get('adminToken')?.value;
     
-    if (!sessionToken) {
-      return NextResponse.redirect(new URL("/", request.url));
+    // Check for admin token in cookie
+    if (adminToken === process.env.NEXT_PUBLIC_ADMIN_SECRET) {
+      return NextResponse.next();
     }
-
-    // You might want to validate the session token here
-    // For now, we'll just check if it exists
     
+    // If no valid token, show login page
     return NextResponse.next();
   }
-  
+
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: "/admin/:path*",
+  matcher: '/admin/:path*'
 }; 

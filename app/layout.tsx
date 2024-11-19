@@ -52,17 +52,6 @@ export const metadata: Metadata = {
     title: "How to BORG",
   },
   
-  // Mobile specific
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-  },
-  
-  // Theme color for browser UI
-  themeColor: "#0a0a0f",
-  
   // Icons
   icons: {
     icon: "/favicon.ico",
@@ -77,6 +66,15 @@ export const metadata: Metadata = {
   // Manifest for PWA
   manifest: "/manifest.json",
 };
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
+export const themeColor = "#0a0a0f";
 
 export default function RootLayout({
   children,
@@ -93,7 +91,6 @@ export default function RootLayout({
         
         {/* Additional meta tags for Android */}
         <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="theme-color" content="#0a0a0f" />
         <meta name="description" content="POV: You're still drinking straight vodka like a freshman. Learn the sacred art of the BORG and ascend to peak hydration. 💀" />
         <meta property="og:description" content="POV: You're still drinking straight vodka like a freshman. Learn the sacred art of the BORG and ascend to peak hydration. 💀" />
         <meta name="twitter:description" content="POV: You're still drinking straight vodka like a freshman. Learn the sacred art of the BORG and ascend to peak hydration. 💀" />

@@ -75,4 +75,9 @@ declare module 'firebase-admin/app' {
 
 declare module 'firebase-admin/firestore' {
   export function getFirestore(app?: any): any;
+  
+  export interface QueryDocumentSnapshot {
+    id: string;
+    data(): any;
+  }
 } 

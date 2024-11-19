@@ -38,3 +38,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+howtoborg-firebase-adminsdk-9tlak-feac57471a.json
+
+firestore.rules
