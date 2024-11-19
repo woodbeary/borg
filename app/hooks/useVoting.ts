@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { doc, updateDoc, increment } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
+import { increment } from 'firebase/firestore/lite';
 import { db } from "@/app/lib/firebase/client";
 import type { VoteRecord } from "@/app/types/definitions";
 
@@ -40,7 +41,7 @@ export function useVoting(updateDefinitionVote?: (id: string, increment: number)
 
       const docRef = doc(db, "definitions", definitionId);
       await updateDoc(docRef, {
-        votes: voteType === 'up' ? increment(1) : increment(-1)
+        votes: voteType === 'up' ? 1 : -1
       });
 
       // Update local state immediately

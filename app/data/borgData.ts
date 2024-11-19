@@ -1,3 +1,5 @@
+import type { Definition } from "@/app/types/definitions";
+
 export const SAFETY_TIPS = [
   {
     title: "Minimum Squad Size",
